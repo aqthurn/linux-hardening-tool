@@ -10,14 +10,14 @@ def run_check():
         if "Status: active" in result.stdout:
             return{
                 "name": "UFW Firewall",
-                "status": "Pass",
+                "status": "PASS",
                 "message": "Firewall UFW está ativo",
                 "fix": None
             }
         else:
             return{
                 "name": "UFW Firewall",
-                "status": "Fail",
+                "status": "FAIL",
                 "message": "Firewall UFW está desativado ou nao instalado",
                 "fix": "sudo ufw enable"
             }
@@ -34,7 +34,7 @@ def run_check():
     except Exception as e:
         return{
             "name": "UFW Firewall",
-                "status": "Fail",
+                "status": "FAIL",
                 "message": f"Erro ao executar o check: {str(e)}",
                 "fix": None
             }
